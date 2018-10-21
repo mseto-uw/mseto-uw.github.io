@@ -1,0 +1,20 @@
+<!DOOCTYPE html>
+<html>
+	<head>
+	</head>
+	
+	<body>
+	<!-- A JSON string with a user's details -->
+		<h2>A User!</h2>
+		<p id="nameElement"></p>
+		<p id="ageElement"></p>
+		<p id="cityElement"></p>
+		<script>
+			var oneUser = '{"name" : "Matt", "age": 21, "city":"Tacoma"}'
+			var user = JSON.parse(oneUser);
+			document.getElementById("nameElement").innerHTML = user.name;
+			document.getElementById("ageElement").innerHTML = user.age;
+			document.getElementById("cityElement").innerHTML = user.city;
+		</script>
+	</body>
+</html>
