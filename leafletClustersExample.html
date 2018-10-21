@@ -35,15 +35,16 @@
 		<div id="map"></div>
 		<!-- the script for my map -->
 		<script>
-			//make the variable for the basemap layer
-			var layer = new L.StamenTileLayer("terrain");
 			//make the map
 			var map = new L.Map("map", {
 				center: new L.LatLng(38.7, -75.4),
 				zoom: 7
 			});
 			//add the basemap to the map
-			map.addLayer(layer);
+			L.tileLayer('http://tile.stamen.com/terrain/{z}/{x}/{y}.jpg', {
+				attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+				maxZoom: 18,
+			}).addTo(map);
 			
 			//The geoJson formatted data for stations
 			 var stations = { "type": "FeatureCollection",
