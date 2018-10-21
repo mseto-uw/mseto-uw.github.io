@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- the leaflet CSS and JS library-->
+		 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+		   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+		   crossorigin=""/>
+		 <!-- Make sure you put this AFTER Leaflet's CSS -->
+		 <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+		   integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+		   crossorigin=""></script>
+		<!-- the stamen basemaps -->
+		<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script>
+		<!-- A sytle for the map element -->
+		<style>
+			#map {height: 100vh; background-color: grey;}
+		</style>
+	</head>
+	
+	<body>
+	<h2> Leaflet! </h2>
+		<!-- the map element -->
+		<div id="map"></div>
+		<!-- the script for my map -->
+		<script>
+			var layer = new L.StamenTileLayer("watercolor");
+			var map = new L.Map("map", {
+				center: new L.LatLng(37.7, -122.4),
+				zoom: 12
+			});
+			map.addLayer(layer);
+
+		</script>
+
+	</body>
+</html>
