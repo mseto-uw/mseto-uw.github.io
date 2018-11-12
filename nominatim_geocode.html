@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- the leaflet CSS and JS library-->
+		 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+		   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+		   crossorigin=""/>
+		 <!-- Make sure you put this AFTER Leaflet's CSS -->
+		 <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+		   integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+		   crossorigin=""></script>
+		<!-- JQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<!-- A sytle for the map element -->
+		<style>
+			#map {height: 80vh; background-color: grey;}
+		</style>
+	</head>
+	
+	<body>
+	<h2> Leaflet! </h2>
+		<!-- an element for a user to enter a location -->
+		<h4>Enter location: </h4>
+		<input id="userInput"></input>
+		<button type="button" onClick="geocode()">Geocode!</button>
+		<!-- the map element -->
+		<div id="map"></div>
+		<!-- the script for my map -->
+		<script>
+			//basemap from https://leaflet-extras.github.io/leaflet-providers/preview/ 
+			var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				maxZoom: 19,
+				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+			});
+			var map = new L.Map("map", {
+				center: new L.LatLng(37.7, -122.4),
+				zoom: 12
+			});
+			map.addLayer(OpenStreetMap_Mapnik);
+
+			//The controller for the button
+			function geocode() {
+				//get the user's input & print to the console
+				var params = document.getElementById("userInput").value;
+				console.log(params);
+				//form the query & print it to the console
+				var url = 'https://nominatim.openstreetmap.org/search?q=' + params + '&format=jsonv2&polygon=1&addressdetails=1';
+				console.log(url);
+				//get the JSON data from the query & do stuff with the results
+				$.getJSON(url, function(data) {
+					//print the results
+					console.log(data);
+					//take the first result & put a marker on the map
+					var marker = L.marker([data[0].lat, data[0].lon]).addTo(map);
+					map.panTo([data[0].lat, data[0].lon]);
+				});
+
+			}
+
+		</script>
+
+	</body>
+</html>
