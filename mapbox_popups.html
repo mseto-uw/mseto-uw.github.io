@@ -42,6 +42,8 @@
 				//Thanks to: https://www.mapbox.com/mapbox-gl-js/example/popup-on-click/ 
 				map.on('click', 'equakes', function (e) {
 			        var coordinates = e.features[0].geometry.coordinates.slice();
+			        //print the properties to the console when clicked
+			        console.log(e.features[0].properties);
 			        //THE HTML ELEMENT THAT WILL GO IN THE POPUP
 			        var description = "<p>Mag: " + e.features[0].properties.mag + "</p> <p>Status: " + e.features[0].properties.status + "</p> <p>Tsunami: " + e.features[0].properties.tsunami + "</p>";
 			        //var description = e.features[0].properties.mag;
