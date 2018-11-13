@@ -50,6 +50,11 @@
 				$.getJSON(url, function(data) {
 					//print the results
 					console.log(data);
+					//check to see if there are results, if not break out of the function
+					if (data.length === 0) {
+						alert("No results!");
+						return;
+					}
 					//take the first result & put a marker on the map
 					var marker = L.marker([data[0].lat, data[0].lon]).addTo(map);
 					map.panTo([data[0].lat, data[0].lon]);
