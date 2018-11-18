@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- the mapbox libraries -->
+		<script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+		<link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
+		<!-- Omnivore plugin to use KML -->
+		<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+	</head>
+
+	<body>
+		<!-- the div for the map -->
+		<!-- note the style is in-line, we have been putting it in the header. Outcome is the same -->
+		<div id='map' style='width: 800px; height: 800px;'></div>
+		<!-- the script that controls the map Thanks to the tutorial here: https://www.mapbox.com/mapbox.js/example/v1.0.0/omnivore-kml/-->
+		<script>
+			//my Mapbox token
+			L.mapbox.accessToken = 'pk.eyJ1Ijoic2V0b20iLCJhIjoiY2o5NmN0dHB4MDNoaDJ3bWw1N2JvemlpaSJ9.McVFy9qwVkdrV_anNWv7jw';
+			
+			//The map variable, set initial style, center/zoom
+			var map = L.mapbox.map('map', 'mapbox.streets');
+
+			//add the KML Layer using Omnivore
+			var runLayer = omnivore.kml('https://cors-anywhere.herokuapp.com/https://www.wpc.ncep.noaa.gov/kml/winwx/HPC_Day1-3_psnow_gt_04_latest.kml')
+		    .on('ready', function() {
+		        map.fitBounds(runLayer.getBounds());
+		    })
+		    .addTo(map);
+		</script>
+	</body>
+</html>
