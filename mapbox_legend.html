@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- example of creating a legend on a mapbox map. thanks to: https://www.mapbox.com/mapbox-gl-js/example/updating-choropleth/ -->
+
+<!-- NOTE THAT THE LEGEND is actually just an HTML div, with CSS telling it where to go on the page. -->
+<html>
+	<head>
+		<!-- the mapbox libraries -->
+		<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
+		<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
+
+		<style>
+		#map { 
+			position:absolute; top:0; bottom:0; width:100%; 
+		}
+		.legend {
+		    background-color: #fff;
+		    border-radius: 3px;
+		    bottom: 30px;
+		    box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+		    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+		    padding: 10px;
+		    position: absolute;
+		    right: 10px;
+		    z-index: 1;
+		}
+		.legend h4 {
+		    margin: 0 0 10px;
+		}
+		.legend div span {
+		    border-radius: 50%;
+		    display: inline-block;
+		    height: 10px;
+		    margin-right: 5px;
+		    width: 10px;
+		}
+		</style>
+	</head>
+
+	<body>
+		<!-- the div for the map -->
+		<div id='map'></div>
+		<!-- the div for the legend -->
+		<div id='state-legend' class='legend'>
+		    <h4>Population</h4>
+		    <div><span style='background-color: #723122'></span>25,000,000</div>
+		    <div><span style='background-color: #8B4225'></span>10,000,000</div>
+		    <div><span style='background-color: #A25626'></span>7,500,000</div>
+		    <div><span style='background-color: #B86B25'></span>5,000,000</div>
+		    <div><span style='background-color: #CA8323'></span>2,500,000</div>
+		    <div><span style='background-color: #DA9C20'></span>1,000,000</div>
+		    <div><span style='background-color: #E6B71E'></span>750,000</div>
+		    <div><span style='background-color: #EED322'></span>500,000</div>
+		    <div><span style='background-color: #F2F12D'></span>0</div>
+		</div>
+		<!-- the script that controls the map -->
+		<script>
+			//my Mapbox token
+			mapboxgl.accessToken = 'pk.eyJ1Ijoic2V0b20iLCJhIjoiY2o5NmN0dHB4MDNoaDJ3bWw1N2JvemlpaSJ9.McVFy9qwVkdrV_anNWv7jw';
+			
+			//The map variable
+			var map = new mapboxgl.Map({
+			    container: 'map',
+			    style: 'mapbox://styles/setom/cjo4qpqk904sp2sldezo7nhya',
+			});
+			//set the center & zoom of the map
+			map.setCenter([-122, 45]);
+			map.setZoom(2);
+
+		</script>
+	</body>
+</html>
