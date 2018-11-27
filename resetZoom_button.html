@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- the mapbox libraries -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
+  </head>
+
+  <body>
+    <!-- the div for the map -->
+    <!-- note the style is in-line, we have been putting it in the header. Outcome is the same -->
+    <div id='map' style='height: 80vh;'></div>
+    <!-- the button for resetting the extent -->
+    <button onClick="resetExtent()">Reset Map</button>
+    <!-- the script that controls the map -->
+    <script>
+      //my Mapbox token
+      mapboxgl.accessToken = 'pk.eyJ1Ijoic2V0b20iLCJhIjoiY2o5NmN0dHB4MDNoaDJ3bWw1N2JvemlpaSJ9.McVFy9qwVkdrV_anNWv7jw';
+      
+      //The map variable, set initial style, center/zoom
+      var map = new mapboxgl.Map({
+          container: 'map',
+          style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
+          center: [-74.50, 40], // starting position [lng, lat]
+          zoom: 9 // starting zoom
+      });
+
+      //a function that resets the center and zoom of the map. Activated by clicking a button
+      function resetExtent() {
+        map.setCenter([-122.438862, 47.246660]);
+        map.setZoom(18);
+      }
+    </script>
+  </body>
+</html>
