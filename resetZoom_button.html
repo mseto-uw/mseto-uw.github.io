@@ -8,9 +8,8 @@
 
   <body>
     <!-- the div for the map -->
-    <!-- note the style is in-line, we have been putting it in the header. Outcome is the same -->
     <div id='map' style='height: 80vh;'></div>
-    <!-- the button for resetting the extent -->
+    <!-- the button for resetting the extent WHEN CLICKED, call the resetExtent() function-->
     <button onClick="resetExtent()">Reset Map</button>
     <!-- the script that controls the map -->
     <script>
@@ -27,7 +26,9 @@
 
       //a function that resets the center and zoom of the map. Activated by clicking a button
       function resetExtent() {
+        //get the map by it's variable ID, set the center to [ln, lat]
         map.setCenter([-122.438862, 47.246660]);
+        //get the map by it's variable ID, set the zoom to (number)
         map.setZoom(18);
       }
     </script>
