@@ -18,6 +18,9 @@
       "useLogo": false
     }
   },
+  "httpProxy": {
+		"useProxy": false
+	},
   "portalUrl": "http://uwt-gis-geotech.maps.arcgis.com",
   "appId": "",
   "authorizedCrossOriginDomains": [],
