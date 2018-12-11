@@ -22,7 +22,7 @@
 		"useProxy": false
 	},
   "portalUrl": "http://uwt-gis-geotech.maps.arcgis.com",
-  "appId": "",
+  "appId": "1v5dl0nq9TpHGsMb",
   "authorizedCrossOriginDomains": [],
   "title": "GTCF",
   "subtitle": "with Web AppBuilder for ArcGIS",
