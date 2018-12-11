@@ -341,7 +341,7 @@
   "dataSource": {
     "dataSources": {},
     "settings": {}
-  }
+  },
   "httpProxy": {
 		"useProxy": false
   }
